@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Soham & Kay – Finding My Way Back</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff5f7;--card:#fff;--ink:#3a1626;--mut:#8a5a6c;--rose:#e0456f;--gold:#d99a2b;--sh:0 10px 30px rgba(224,69,111,.18);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c0b14;--card:#2c1220;--ink:#ffe8ef;--mut:#d9a3b8;--sh:0 10px 30px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#1c0b14;--card:#2c1220;--ink:#ffe8ef;--mut:#d9a3b8;--sh:0 10px 30px rgba(0,0,0,.4)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Poppins,system-ui,sans-serif;overflow-x:hidden}
+h1,h2{font-family:'Playfair Display',Georgia,serif;margin:0}
+section{max-width:960px;margin:0 auto;padding:44px 18px}
+h2{font-size:2rem;text-align:center;margin-bottom:6px}
+.sub{text-align:center;color:var(--mut);margin:0 0 26px}
+.hero{text-align:center;padding:70px 18px 50px;background:linear-gradient(160deg,#ff8fab,#e0456f 55%,#9d2a5b);color:#fff;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2.2rem,7vw,4rem);text-shadow:0 4px 20px rgba(0,0,0,.25)}
+.hero p{max-width:560px;margin:14px auto;opacity:.95;font-weight:300}
+.pill{display:inline-block;background:rgba(255,255,255,.22);padding:8px 18px;border-radius:99px;margin-top:8px;backdrop-filter:blur(6px)}
+.heart{position:absolute;bottom:-30px;animation:up linear infinite;opacity:.6;pointer-events:none}
+@keyframes up{to{transform:translateY(-560px) rotate(40deg);opacity:0}}
+.card{background:var(--card);border-radius:20px;box-shadow:var(--sh);padding:24px}
+.apology{text-align:center;border:2px dashed var(--rose)}
+.apology .day{color:var(--rose);font-weight:600;letter-spacing:.1em;font-size:.8rem;text-transform:uppercase}
+.apology blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.35rem;line-height:1.6;margin:14px 0}
+.meter{height:26px;background:rgba(224,69,111,.15);border-radius:99px;overflow:hidden;margin:16px 0 6px}
+.meter div{height:100%;width:0;background:linear-gradient(90deg,#ff8fab,#e0456f,#d99a2b);border-radius:99px;transition:width .8s cubic-bezier(.2,.9,.3,1)}
+.big{font-size:2.6rem;font-weight:600;color:var(--rose);text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+button{font:inherit;cursor:pointer;border:0}
+.deed{background:var(--bg);border:2px solid transparent;border-radius:14px;padding:14px;text-align:left;color:var(--ink);transition:.2s}
+.deed:hover{border-color:var(--rose);transform:translateY(-3px)}
+.deed b{color:var(--rose)}
+.btn{background:var(--rose);color:#fff;padding:11px 22px;border-radius:99px;font-weight:600;text-decoration:none;display:inline-block;transition:.2s}
+.btn:hover{filter:brightness(1.1);transform:scale(1.04)}
+.btn.ghost{background:transparent;color:var(--mut);border:1px solid var(--mut)}
+.vouch{position:relative;text-align:center;border-radius:18px;padding:22px 16px;background:var(--card);box-shadow:var(--sh);border-top:6px solid var(--c)}
+.vouch .e{font-size:2.6rem}
+.vouch h3{margin:6px 0;font-size:1.05rem}
+.vouch p{font-size:.85rem;color:var(--mut);margin:0 0 14px}
+.vouch.used{opacity:.5;filter:grayscale(.8)}
+.vouch.used::after{content:"REDEEMED";position:absolute;top:40%;left:50%;transform:translate(-50%,-50%) rotate(-14deg);border:3px solid var(--rose);color:var(--rose);padding:4px 12px;font-weight:600;border-radius:8px}
+.log{list-style:none;padding:0;margin:14px 0 0;max-height:190px;overflow:auto;font-size:.9rem}
+.log li{padding:8px 4px;border-bottom:1px solid rgba(224,69,111,.15);display:flex;justify-content:space-between}
+.prom label{display:flex;gap:12px;align-items:center;padding:12px;border-radius:12px;cursor:pointer}
+.prom label:hover{background:rgba(224,69,111,.08)}
+.prom input{width:20px;height:20px;accent-color:var(--rose)}
+.flip{perspective:800px;height:130px;cursor:pointer}
+.flip>div{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flip.on>div{transform:rotateY(180deg)}
+.flip span{position:absolute;inset:0;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;border-radius:16px;font-size:.92rem}
+.f{background:linear-gradient(135deg,#ff8fab,#e0456f);color:#fff;font-weight:600;font-size:1.1rem!important}
+.b{background:var(--card);box-shadow:var(--sh);transform:rotateY(180deg)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:50;padding:18px}
+.modal.show{display:flex}
+.modal .card{max-width:420px;text-align:center}
+.win{display:none;position:fixed;inset:0;z-index:60;background:linear-gradient(160deg,#ff8fab,#e0456f,#9d2a5b);color:#fff;text-align:center;align-items:center;justify-content:center;flex-direction:column;padding:24px}
+.win.show{display:flex}
+.win h1{font-size:clamp(2.4rem,8vw,4.5rem);animation:pop 1s infinite alternate}
+@keyframes pop{to{transform:scale(1.07)}}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:70}
+footer{text-align:center;color:var(--mut);padding:30px;font-size:.85rem}
+.tools{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+</style></head><body>
+<canvas id="cv"></canvas>
+<header class="hero" id="hero">
+<h1>For Kay, from Soham</h1>
+<p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem">I broke the one thing I promised to protect — your trust in me. I can't undo it. I can only become, every ordinary day we share this home, someone worth having stayed for.</p>
+<span class="pill">Under one roof, rebuilding · Day <b id="days">1</b></span>
+</header>
+
+<section>
+<div class="card apology"><div class="day">💌 For Kay, today · <span id="today"></span></div>
+<blockquote id="sorry"></blockquote><div style="color:var(--mut);font-size:.85rem">A new one every single day, until you're tired of reading them. — Soham</div></div>
+</section>
+
+<section>
+<h2>Kay's Trust Meter</h2><p class="sub">Only you get to add to this, Kay. Tap a deed below, or add your own reason. Reach <b id="max">100</b> and it's official — I've won you back.</p>
+<div class="card">
+<div class="big"><span id="pts">0</span> / <span id="max2">100</span></div>
+<div class="meter"><div id="bar"></div></div>
+<div style="text-align:center;color:var(--mut)" id="lvl"></div>
+<h3 style="margin:22px 0 10px">Log a good deed</h3>
+<div class="grid" id="deeds"></div>
+<h3 style="margin:22px 0 10px">Or add your own, Kay</h3>
+<form id="customForm" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+<input id="customText" type="text" placeholder="What did he do?" required style="flex:1;min-width:180px;padding:11px 14px;border-radius:99px;border:1px solid rgba(224,69,111,.35);background:var(--bg);color:var(--ink)">
+<input id="customPts" type="number" min="1" max="20" value="5" style="width:78px;padding:11px 10px;border-radius:99px;border:1px solid rgba(224,69,111,.35);background:var(--bg);color:var(--ink);text-align:center">
+<button class="btn" type="submit">Add points</button>
+</form>
+<div class="tools"><button class="btn ghost" id="undo">↩ Undo last</button><button class="btn ghost" id="reset">Reset</button></div>
+<ul class="log" id="log"></ul>
+</div></section>
+
+<section>
+<h2>Kay's Vouchers 🎟️</h2><p class="sub">Redeem any of these, any time. Tap one and I'm notified right away — no excuses, no take-backs.</p>
+<div class="grid" id="vouchers"></div></section>
+
+<section>
+<h2>What I Owe You, Kay 🤞</h2><p class="sub">Tick them off as you see me keep them, not just say them.</p>
+<div class="card prom" id="prom"></div></section>
+
+<section>
+<h2>Why I'm Not Going Anywhere ✨</h2><p class="sub">Tap a card to flip it.</p>
+<div class="grid" id="reasons"></div></section>
+
+<footer>Built by Soham, for Kay — with love, regret, and a lot of hope 💗</footer>
+
+<div class="modal" id="modal"><div class="card"><div style="font-size:3rem" id="mE"></div><h3 id="mT"></h3>
+<p style="color:var(--mut)" id="mP"></p>
+<button class="btn" id="mail">Confirm &amp; Notify Soham 📧</button><br><br>
+<button class="btn ghost" id="cancel">Not now</button></div></div>
+<div class="win" id="win"><h1>You've won me back, Kay 💖</h1><p style="max-width:520px;font-size:1.2rem">100 points, all given by you, none demanded. Thank you for the second chance — I'll spend the rest of them proving it was worth it.</p><br><button class="btn" style="background:#fff;color:#e0456f" id="closeWin">Continue, together 💞</button></div>
+
+<script>
+const EMAIL="satvarasoham@gmail.com",MAX=100,START="2026-09-24";
+const FORM="https://formspree.io/f/xnpnzglv";
+const $=id=>document.getElementById(id);
+async function notify(subject,message){
+ try{
+  await fetch(FORM,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},
+   body:JSON.stringify({subject:subject,message:message,email:"noreply@icheatedonher.com"})});
+ }catch(e){console.error("notify failed",e)}
+}
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const sorries=["Kay, I'm sorry I broke the one rule that mattered — that you should always feel safest with me.","I keep replaying every version of that night where I just walk away. I'm sorry I didn't.","You built a home with me, and I let something careless walk right into the middle of it. I'm sorry.","I'm not asking you to forget. I'm asking for the chance to become someone worth remembering differently.","The worst part isn't what I did. It's what it made you question about every good year before it. I'm sorry.","I used to think love was the feeling. Now I know it's what I do on the days the feeling isn't enough — and I failed that test.","I'm sorry for the version of me that thought this house could survive on autopilot. It can't. You deserve intention, every day.","If I could trade every excuse I almost made for one more year of your trust, I would, without thinking twice.","I'm sorry that healing isn't a switch. Take whatever time you need — I'm not going anywhere while you do.","You didn't just lose trust in me, Kay. For a while you lost some trust in your own judgment. That's the part I regret most.","I'm sorry for the silences I filled with my own guilt instead of your comfort. I'm learning to sit in them with you now.","Some nights I still don't know how to apologize enough. So I'm building this instead — proof, not just words.","I'm sorry I made 'home' feel less safe for a while. I want to earn back what that word used to mean for us.","This isn't about being forgiven today. It's about showing up tomorrow, and the day after, until trust stops feeling like a risk.","I'm sorry, Kay. Not because I got caught — because I know exactly what I almost lost, and I'm not willing to lose it."];
+const deeds=[["📱","Full, unprompted phone transparency",5],["🍳","Cooked dinner, no asking",4],["🧹","Handled chores before you had to ask",3],["👂","Listened without getting defensive",6],["🗣️","Had a hard, honest conversation",8],["🚫","Said no to a risky situation",10],["🤝","Went to therapy / worked on myself",10],["🎁","Small, thoughtful gesture, no occasion",4],["🏡","Made the apartment feel like ours again",3],["💬","Checked in on how you're really feeling",5],["🧠","Kept a promise under pressure",7],["🌙","Made space for your bad day, not mine",4]];
+const vouchers=[["🍳","A Full Weekend of Cooking","Every meal, planned and made by me. You don't touch a pan.","#e0456f"],["💄","$100 Sephora, No Questions","Pick anything. I'll wait outside with the bags.","#d99a2b"],["🎩","Personal Butler, One Full Day","Coffee ready, chores done, doors opened. Yours to command.","#7b4fd6"],["💆","At-Home Spa Night, I Run It","Bath drawn, candles lit, phone silenced. You just relax.","#2aa79b"],["📵","You Pick the Movie, No Debate","Every remote-control argument, pre-forgiven.","#3f7fe0"],["🍽️","Dinner, Anywhere You Choose","Reservation, ride, and bill — all handled.","#e07a2b"],["🧺","One Full Week of Chores, Solo","Laundry, dishes, groceries — all mine, no reminders.","#c23a8f"],["🗣️","One Free Pass on Any Argument","You're right. I'll say it first, no fight needed.","#b23b3b"],["🌇","A Whole Day, Just Ours","No phones, no plans but each other. I'll plan it.","#e0456f"],["📝","Write You a Letter, By Hand","Something real, not typed. Whenever you want it.","#5aa02c"]];
+const promises=["I will always be honest with you, even when it costs me","I will keep no secrets and no locked doors between us","I will choose you first, especially when it's inconvenient","I will end all contact that ever put us at risk","I will show up in the small, boring, everyday moments","I will never make you feel foolish for trusting me again"];
+const reasons=[["Your laugh","It still fixes my worst days, even now."],["Your patience","More than I've earned, and I know it."],["Your strength","You're carrying this better than I would."],["Your honesty","You never once made me guess where I stood."],["Your home","Every version of it, with you, still feels like the right one."],["Your choice","That you're even willing to try — I don't take that lightly."]];
+
+let st=store.get("st",{pts:0,log:[],done:{},used:{}});
+const save=()=>store.set("st",st);
+const d0=new Date(START+"T00:00:00"),now=new Date();
+const diff=Math.max(0,Math.floor((now-d0)/864e5));
+$("days").textContent=diff+1;
+$("today").textContent=now.toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"});
+$("sorry").textContent="“"+sorries[diff%sorries.length]+"”";
+$("max").textContent=$("max2").textContent=MAX;
+
+// hearts
+for(let i=0;i<18;i++){const h=document.createElement("div");h.className="heart";h.textContent=["💗","💖","💕","🌹"][i%4];h.style.left=Math.random()*100+"%";h.style.fontSize=14+Math.random()*24+"px";h.style.animationDuration=6+Math.random()*8+"s";h.style.animationDelay=-Math.random()*10+"s";$("hero").appendChild(h)}
+
+const levels=[[0,"Just starting, Kay's watching closely 🌱"],[20,"Small things, noticed 👀"],[40,"Real progress, keep going 💪"],[60,"Kay's letting her guard down 🔥"],[80,"So close now 🥺"],[100,"KAY'S GIVEN ME HER TRUST BACK 💖"]];
+function render(){
+ $("pts").textContent=st.pts;$("bar").style.width=Math.min(100,st.pts/MAX*100)+"%";
+ $("lvl").textContent=[...levels].reverse().find(l=>st.pts>=l[0])[1];
+ $("log").innerHTML=st.log.slice().reverse().map(l=>`<li><span>${l.t}</span><b style="color:var(--rose)">+${l.p}</b></li>`).join("")||"<li style='color:var(--mut)'>No points yet. Time to earn them.</li>";
+}
+$("deeds").innerHTML=deeds.map((d,i)=>`<button class="deed" data-i="${i}"><div style="font-size:1.6rem">${d[0]}</div>${d[1]}<br><b>+${d[2]} pts</b></button>`).join("");
+$("deeds").onclick=e=>{const b=e.target.closest(".deed");if(!b)return;const d=deeds[b.dataset.i];const was=st.pts;const p=Math.min(d[2],MAX-st.pts);if(p<=0){return}
+ st.pts+=p;st.log.push({t:d[0]+" "+d[1],p});save();render();burst(b);
+ notify("💗 Kay logged a good deed: "+d[1],"Kay gave Soham +"+p+" points for: "+d[1]+"\nTotal now: "+st.pts+" / "+MAX);
+ if(was<MAX&&st.pts>=MAX)setTimeout(winNow,600)};
+$("customForm").onsubmit=e=>{e.preventDefault();const txt=$("customText").value.trim();let p=Math.round(+$("customPts").value)||0;p=Math.max(1,Math.min(20,p));if(!txt)return;const was=st.pts;p=Math.min(p,MAX-st.pts);if(p<=0)return;
+ st.pts+=p;st.log.push({t:"💗 "+txt,p});save();render();confetti(30);$("customText").value="";
+ notify("💗 Kay added her own entry: "+txt,"Kay gave Soham +"+p+" points for: "+txt+"\nTotal now: "+st.pts+" / "+MAX);
+ if(was<MAX&&st.pts>=MAX)setTimeout(winNow,600)};
+$("undo").onclick=()=>{const l=st.log.pop();if(l){st.pts-=l.p;save();render()}};
+$("reset").onclick=()=>{if(confirm("Reset all points?")){st.pts=0;st.log=[];save();render()}};
+
+$("vouchers").innerHTML=vouchers.map((v,i)=>`<div class="vouch" id="v${i}" style="--c:${v[3]}"><div class="e">${v[0]}</div><h3>${v[1]}</h3><p>${v[2]}</p><button class="btn" data-v="${i}">Redeem</button></div>`).join("");
+function paintV(){vouchers.forEach((v,i)=>$("v"+i).classList.toggle("used",!!st.used[i]))}
+let cur=null;
+$("vouchers").onclick=e=>{const b=e.target.closest("[data-v]");if(!b)return;cur=+b.dataset.v;if(st.used[cur])return;const v=vouchers[cur];
+ $("mE").textContent=v[0];$("mT").textContent="Redeem: "+v[1]+"?";$("mP").textContent="Confirming will send Soham a notification automatically.";
+ $("modal").classList.add("show")};
+$("mail").onclick=()=>{const v=vouchers[cur];st.used[cur]=1;save();paintV();$("modal").classList.remove("show");confetti();
+ notify("🎟️ Kay redeemed: "+v[1],"Kay redeemed: "+v[1]+"\n\n"+v[2]+"\n\nRedeemed on "+new Date().toLocaleString()+"\n\nTime to deliver, Soham! 💖")};
+$("cancel").onclick=()=>$("modal").classList.remove("show");
+
+$("prom").innerHTML=promises.map((p,i)=>`<label><input type="checkbox" data-p="${i}"> ${p}</label>`).join("");
+document.querySelectorAll("[data-p]").forEach(c=>{c.checked=!!st.done[c.dataset.p];c.onchange=()=>{st.done[c.dataset.p]=c.checked;save();if(c.checked){confetti(30);notify("🤞 Kay checked off a promise",promises[c.dataset.p]+"\n\nKay marked this promise as kept.")}}});
+
+$("reasons").innerHTML=reasons.map(r=>`<div class="flip"><div><span class="f">${r[0]} 💗</span><span class="b">${r[1]}</span></div></div>`).join("");
+$("reasons").onclick=e=>{const f=e.target.closest(".flip");if(f)f.classList.toggle("on")};
+
+function winNow(){$("win").classList.add("show");confetti(200);notify("💖 Kay reached 100 points!","Kay's trust meter just hit "+MAX+"/"+MAX+". You won her back, Soham.")}
+$("closeWin").onclick=()=>$("win").classList.remove("show");
+
+// confetti
+const cv=$("cv"),cx=cv.getContext("2d");let P=[],run=false;
+function size(){cv.width=innerWidth;cv.height=innerHeight}size();addEventListener("resize",size);
+function confetti(n=120,x,y){for(let i=0;i<n;i++)P.push({x:x??Math.random()*cv.width,y:y??-10,vx:(Math.random()-.5)*6,vy:Math.random()*4+2,s:6+Math.random()*8,c:`hsl(${330+Math.random()*40},90%,${55+Math.random()*25}%)`,r:Math.random()*6});if(!run){run=true;loop()}}
+function burst(el){const r=el.getBoundingClientRect();confetti(20,r.left+r.width/2,r.top)}
+function loop(){cx.clearRect(0,0,cv.width,cv.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.05;p.r+=.1;cx.fillStyle=p.c;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);cx.restore()});P=P.filter(p=>p.y<cv.height+20);if(P.length)requestAnimationFrame(loop);else{run=false;cx.clearRect(0,0,cv.width,cv.height)}}
+render();paintV();if(st.pts>=MAX)$("lvl").textContent="WON HER BACK 💖";
+</script></body></html>
